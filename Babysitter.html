@@ -2,64 +2,56 @@
 
 <head>
 	<title> Babysitter Kata </title>
-	
 	<script>
 		
-			var afternoonstarttime;
-			var afternoonendtime; //military time
-			var afternoonpayrate ; //pay per hour
-		
-			document.getElementByid("afternoonstarttime");
-			document.getElementByid("afternoonendtime");
-			document.getElementByid("afternoonpayrate");
-	
-			function calculateAfternoonHours (afternoonendtime, afternoonstarttime) {
-				return afternoonendtime - afternoonstarttime;
-				
-			}
-		
-			function calculateafternoonpay(afternoonhours, afternoonpayrate) {
-				return afternoonhours * afternoonpayrate;
-			}
 			
-	</script>
+		function calculate (enterAfternoonEndTime, enterAfternoonStartTime, enterAfternoonPayRate) {
+			
+			return toalAfternoonPay;
+			
+		
+		var afternoonStartTime = document.getElementbyId("enterAfternoonStartTime").value;//military time
+		var afternoonEndTime = document.getElementbyId("enterAfternoonEndTime").value;
+		var afternoonPayRate = document.getElementbyId("enterAfternoonPayRate").value; 
+		var totalAfternoonPay = (enterAfternoonEndTime - enterAfternoonStartTime) * enterAfternoonPayRate
+			}
+		</script>
 </head>
 
 <body>
 
-	<h1>Welcome to the Babysitter Calculator!</h1>
-	<p> Pay is calculated for the following shifts: </p>
-		<ul>
-			<li>Afternoon: 5:00pm - 8:00pm </li>
-			<li>Evening: 8:01pm - Midnight</li>
-			<li>Overnight: 12:01am - 4:00am</li>
-		</ul>	
+		<h1>Welcome to the Babysitter Calculator!</h1>
+		<p> Pay is calculated for the following shifts: </p>
+			<ul>
+				<li>Afternoon: 5:00pm - 8:00pm </li>
+				<li>Evening: 8:01pm - Midnight</li>
+				<li>Overnight: 12:01am - 4:00am</li>
+			</ul>	
 
-	<form id="CalculatePay">
-		<div>  
-						<p> 
-				<label>Enter afternoon start time (i.e, 13:00 = 1pm):</label>
-				<input id="afternoonstarttime" type = "int" name="afternoonstarttime"/> 
-			</p>
-						
-			<p>
-				<label>Enter afternoon end time:</label>
-				<input id="afternoonendtime" type = "int" name="afternoonendtime"/>
-			</p>
+
+		<p> 
+			<label>Enter afternoon start time (i.e, 13:00 = 1pm):</label>
+			<input type = "number" name="enterAfteroonStartTime" id="enterAfteroonStartTime" /> 
+		</p>
+					
+		<p>
+			<label>Enter afternoon end time:</label>
+			<input type = "number" name ="enterAfternoonEndTime" id = "enterAfternoonEndTime" />
+		</p>
 			
-			<p>
-				<label>Enter afternoon pay rate:</label>
-				<input id="afternoonpay" type = "int" name="afternoonpay"/> 
-			</p>
+		<p>
+			<label>Enter afternoon pay rate:</label>
+			<input type = "number" name="enterAfternoonPayRate" id = "enterAfternoonPayRate"/> 
+		</p>
 	
+		<button type="button" onclick="function calculate"> Calculate! </button>
 
-		
+		<p id = showcalculation>
+			<label> Total Pay Per Shift: </label> 
+			<script> document.getElementbyId(var totalAfternoonPay).innerhtml = "totalAfternoonPay";</script>
+		</p>	
 
-		<button id = "showTotalPay" onclick="showTotalPay()">Calculate Pay</button>
-		
+
 	
-
-		</div>
-	</form>		
 </body>
 </html>
