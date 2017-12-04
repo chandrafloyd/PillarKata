@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<head>
+   <title> Babysitter calc 3 shifts </title>
+   <script>
+      function calculateAfternoon () {
+      
+      var afternoonStartTime = document.getElementById("enterAfternoonStartTime").value;//military time
+       var afternoonEndTime = document.getElementById("enterAfternoonEndTime").value;
+       var afternoonPayRate = document.getElementById("enterAfternoonPayRate").value; 
+       var totalAfternoonPay = (afternoonEndTime - afternoonStartTime) * afternoonPayRate;
+      
+      document.getElementById("totalAfternoonPay").innerHTML = totalAfternoonPay;
+      
+      //add validation of input type (number vs text)
+      //set parameters for start and end times and create unit test to validate (if time = < 5pm, alert error; if time = > 8pm, error) 
+          }
+
+      function calculateEvening () {
+      
+      var EveningStartTime = document.getElementById("enterEveningStartTime").value;
+       var EveningEndTime = document.getElementById("enterEveningEndTime").value;
+       var EveningPayRate = document.getElementById("enterEveningPayRate").value; 
+       var totalEveningPay = (EveningEndTime - EveningStartTime) * EveningPayRate;
+      
+      document.getElementById("totalEveningPay").innerHTML = totalEveningPay;
+    
+      //add validation of input type (number vs text)
+      //set parameters for start and end times and create unit test (if time = < 801pm, alert error; if time = > midnight, error) 
+    
+          } 
+
+      function calculateOvernight () {
+      
+      var OvernightStartTime = document.getElementById("enterOvernightStartTime").value;
+      var OvernightEndTime = document.getElementById("enterOvernightEndTime").value;
+      var OvernightPayRate = document.getElementById("enterOvernightPayRate").value; 
+      var totalOvernightPay = (OvernightEndTime - OvernightStartTime) * OvernightPayRate;
+      
+      document.getElementById("totalOvernightPay").innerHTML = totalOvernightPay;
+      
+      //add validation of input type (number vs text)
+      //set parameters for start and end times and create unit test (if time = < 1201pm, alert error; if time = > 400am, error) 
+    
+        }
+
+      function calculateAll (calculateAfternoon, calculateEvening, calculateOvernight) {
+       
+       return calculateAfternoon +calculateEvening + calculateOvernight;  
+
+       document.write(calculateAll).innerHTML = calculateAll;
+        
+      }
+
+   </script>
+</head>
+<body>
+   <h1>Welcome to the Babysitter Calculator!</h1>
+   <p> Pay is calculated for the following shifts: </p>
+   <ul>
+      <li>Afternoon: 5:00pm - 8:00pm </li>
+      <li>Evening: 8:01pm - Midnight</li>
+      <li>Overnight: 12:01am - 4:00am</li>
+   </ul>
+
+   <p id = Afternoon> 
+      <label>Enter afternoon start time (i.e, 13:00 = 1pm):</label>
+      <input type = "number" name="enterAfternoonStartTime" id="enterAfternoonStartTime" /> 
+   </p>
+   <p>
+      <label>Enter afternoon end time:</label>
+      <input type = "number" name ="enterAfternoonEndTime" id = "enterAfternoonEndTime" />
+   </p>
+   <p>
+      <label>Enter afternoon pay rate:</label>
+      <input type = "number" name="enterAfternoonPayRate" id = "enterAfternoonPayRate"/> 
+   </p>
+   <br>  
+   <p id = Evening> 
+      <label>Enter Evening start time (i.e, 13:00 = 1pm):</label>
+      <input type = "number" name="enterEveningStartTime" id="enterEveningStartTime" /> 
+   </p>
+   <p>
+      <label>Enter Evening end time:</label>
+      <input type = "number" name ="enterEveningEndTime" id = "enterEveningEndTime" />
+   </p>
+   <p>
+      <label>Enter Evening pay rate:</label>
+      <input type = "number" name="enterEveningPayRate" id = "enterEveningPayRate"/> 
+   </p>
+   <br>   
+   <p id = Overnight> 
+      <label>Enter Overnight start time (i.e, 13:00 = 1pm):</label>
+      <input type = "number" name="enterOvernightStartTime" id="enterOvernightStartTime" /> 
+   </p>
+   <p>
+      <label>Enter Overnight end time:</label>
+      <input type = "number" name ="enterOvernightEndTime" id = "enterOvernightEndTime" />
+   </p>
+   <p>
+      <label>Enter Overnight pay rate:</label>
+      <input type = "number" name="enterOvernightPayRate" id = "enterOvernightPayRate"/> 
+   </p>
+
+    <button type="button" onclick="calculateAll();"> Calculate! </button>
+    <br>   
+   
+   <p>
+      <label> Total Pay Per Shift:<span id="calculateAll"></span> </label>
+
+   //round floor/ceiling to get round numbers for pay
+
+   </p>
+
+</body>
+</html>
