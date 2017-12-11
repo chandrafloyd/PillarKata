@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Babysitter - flat hour rate </title>
+   <script>
+     
+      function calculateAfternoon () {
+      
+      var afternoonStartTime = document.getElementById("enterAfternoonStartTime").value;//military time 
+       var afternoonEndTime = document.getElementById("enterAfternoonEndTime").value;
+       var afternoonPayRate = 12;
+       
+       //figure out how to round up the fractional hour  .5 = 1hr
+      //figure out how to allow null
+      
+       //var roundUpAfternoon = math.ceiling(afternoonEndTime - afternoonStartTime);
+       //var totalAfternoonPay = (roundUpAfternoon) * afternoonPayRate;
+      
+      var totalAfternoonPay = (afternoonEndTime - afternoonStartTime) * afternoonPayRate;
+      	
+    	if (afternoonStartTime < 1700) { 
+      	alert("Afternoon Start Time must be 5:00pm or later");
+      	      }
+
+      	else return totalAfternoonPay;
+       
+          }
+
+      function calculateEvening () {
+      
+      var EveningStartTime = document.getElementById("enterEveningStartTime").value;
+       var EveningEndTime = document.getElementById("enterEveningEndTime").value;
+       var EveningPayRate = 8; 
+       var totalEveningPay = (EveningEndTime - EveningStartTime) * EveningPayRate;
+      
+      
+		if (EveningStartTime < 2000) { 
+      	alert("Evening Start Time must be 8:00pm or later");
+      }
+     
+       else return totalEveningPay;
+      
+          } 
+
+      function calculateOvernight () {
+      
+      var OvernightStartTime = document.getElementById("enterOvernightStartTime").value;
+      var OvernightEndTime = document.getElementById("enterOvernightEndTime").value;
+      var OvernightPayRate = 16;
+      var totalOvernightPay = (OvernightEndTime - OvernightStartTime) * OvernightPayRate;
+     
+      if (OvernightStartTime < 2400) { 
+      	alert("Overnight Start Time must be Midnight or later");
+      } 
+       else return totalOvernightPay;
+      
+          }
+          
+      function totalPay () { 
+
+      var totalAfternoonPay = calculateAfternoon ();
+      var totalEveningPay = calculateEvening ();
+      var totalOvernightPay = calculateOvernight ();
+      var totalPay = totalEveningPay + totalAfternoonPay + totalOvernightPay;
+      
+      document.getElementById("totalPay").innerHTML = totalPay;
+      
+          }          
+
+
+   </script>
+</head>
+<body>
+   <h1>Welcome to the Babysitter Calculator!</h1>
+ 
+   <p id = Afternoon> <!-- find code to convert standard time to military time, change the input type in the HTML, and update the calculate functions  -->
+      Afternoon: 5:00pm - 8:00pm<br>
+      $12 per hour<br>
+      <label>Start Time (i.e, 5:00pm = 1700):</label>  <!-- need to validate the start time- must be > or < than.... -->
+      <input type = "time" name="enterAfternoonStartTime" id="enterAfternoonStartTime" /> 
+   </p>
+   <p>
+      <label>End Time:</label>
+      <input type = "time" name ="enterAfternoonEndTime" id = "enterAfternoonEndTime" />
+   </p>
+ 
+   <br>  
+   <p id = Evening> 
+      Evening: 8:00pm - Midnight<br>
+      $8 per hour <br>
+      <label>Start Time (i.e, 8:00pm = 2000):</label>
+      <input type = "time" name="enterEveningStartTime" id="enterEveningStartTime" /> 
+   </p>
+   <p>
+      <label>End Time:</label>
+      <input type = "time" name ="enterEveningEndTime" id = "enterEveningEndTime" />
+   </p>
+   
+   <br>   
+   <p id = Overnight> 
+      Overnight: Midnight - 4:00am<br>
+      $16 per hour<br>
+      <label>Start Time (i.e, Midnight = 2400):</label>
+      <input type = "time" name="enterOvernightStartTime" id="enterOvernightStartTime" /> 
+   </p>
+   <p>
+      <label>End Time:</label>
+      <input type = "time" name ="enterOvernightEndTime" id = "enterOvernightEndTime" />
+   </p>
+ 
+    <button type="button" onclick="totalPay();"> Calculate! </button>
+    <br>   
+    <p id = "showcalculation">
+      <label> Total Pay Per Night: $<span id="totalPay"></span> </label>
+   </p>
+
+</body>
+</html>
